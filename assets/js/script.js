@@ -273,4 +273,9 @@ $("#modalDueDate").datepicker({
 // load tasks for the first time
 loadTasks();
 
-
+// periodically audit task due dates every half hour
+setInterval(function () {
+  $(".card .list-group-item").each(function (el) {
+    auditTask(el);
+  });
+}, 1000 * 60 * 30);
